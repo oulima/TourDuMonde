@@ -1,0 +1,54 @@
+ {% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="row">
+		<div class="col">
+			<h1>Gestion des pays</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+
+		{% include '_inc/flash.message.html.twig' %}
+
+			<p class="text-right">
+				<a href="{{ url('pays_admin.form') }}" class="btn btn-primary">Ajouter</a>
+			</p>
+			<table class="table table-striped">
+				<tr>
+					<th>Image</th>
+					<th>Nom</th>
+					<th>Continent</th>
+					<th></th>
+				</tr>
+				{% for pays in results %}
+					<tr>
+						
+						<td class="w-25">
+							<img src="{{ asset('img/' ~ pays.image) }}" class="img-fluid" alt="">
+						</td>
+						<td>{{ pays.name }}
+						<td>{{ pays.idcontinent.name}}
+
+						<td class="text-right">
+							<a href="{{ url('pays_admin.update', { id: pays.id }) }}" class="btn btn-warning">Modifier</a>
+							<a href="{{ url('pays_admin.delete', { id: pays.id }) }}" class="btn btn-danger">Supprimer</a>
+						</td>
+
+					</tr>
+
+				{% endfor %}
+				
+	
+				
+			</table>
+		</div>
+	</div>
+{% endblock %}
+
+
+
+
+
+
+

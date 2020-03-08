@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="row">
+		<div class="col">
+			<h1>Ajouter un pays</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			{# form : variable envoyée par le contrôleur #}
+			{{ form_start(form, { attr: { novalidate: 'novalidate' } } ) }}
+				<p>
+					{# name provient de la classe de formulaire (ProductType) #}
+					{{ form_label(form.name, 'Nom:') }}
+					{{ form_widget(form.name) }}
+				</p>
+				<p>
+					{{ form_label(form.capital, 'Capital:') }}
+					{{ form_widget(form.capital) }}
+				</p>
+				<p>
+					{{ form_label(form.image, 'Image:') }}
+					{{ form_widget(form.image) }}
+				</p>
+				<p>
+					{{ form_label(form.idcontinent, 'continent:') }}
+					{{ form_widget(form.idcontinent) }}
+				</p>
+				
+				<p>
+					<input type="submit" class="btn btn-info" value="Valider">
+				</p>
+			{{ form_end(form) }}
+		</div>
+	</div>
+{% endblock %}

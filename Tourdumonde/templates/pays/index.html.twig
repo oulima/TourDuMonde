@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block name %}Hello DecouverteController!{% endblock %}
+
+{% block body %}
+{# <style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .pays { float :center; }
+</style> #}
+	<div class="row">
+		<div class="col">
+			<h1>Voici la liste de nos pays</h1>
+		</div>
+	</div>
+
+	<div class="row">
+		
+    	{% for pays in results %}
+			{# <div class="col-sm-6 pays">
+				
+				
+					<p {{pays.image }} </p>
+                    <img src="{{ asset('img/' ~ pays.image) }}" class="img-fluid" alt="">
+			</div> #}
+            <div class="col-sm-3">
+				<img src="{{ asset('img/' ~ pays.image) }}" class="img-fluid" alt="">
+				<h4>{{ pays.name }}</h4>
+				 <p>
+					<a href="{{ url('pays.details', { id: pays.id }) }}" class="btn btn-primary">Visualiser</a>
+				</p> 
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

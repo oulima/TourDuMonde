@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="row">
+		<div class="col">
+			<h1>Pays</h1>
+		</div>
+	</div>
+	<div class="row">
+		{% for pays in param %}
+			<div class="col-sm-3">
+				<img src="{{ asset('img/' ~ pays.image) }}" class="img-fluid" alt="">
+				<h4>{{ pays.name }}</h4>
+				<p class="font-weight-bold">{{ pays.price }}€</p>
+				<p>
+					{#<a href="{{ url('pays.details', { id: product.id }) }}" class="btn btn-primary">Visualiser</a>#}
+					<a href="{{ url('pays.details', {   slug: pays.slug }) }}" class="btn btn-primary">Visualiser</a>
+				</p>
+			</div>
+		{% endfor %}
+	</div>
+
+	
+{% endblock %}
+
+
+
+
+
+
+
